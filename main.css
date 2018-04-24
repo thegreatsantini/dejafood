@@ -7,7 +7,7 @@
   }
   
   body {
-    background: url(https://images.cb2.com/is/image/CB2/BlackClayDinnerPlate11inSHF16/?$web_product_hero$&161208101132&wid=625&hei=625);
+    background: red;
     background-size: 100%;
     background-position: center;
     font-family: "Lato", sans-serif;
@@ -28,4 +28,8 @@
     width: 400px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  #black {
+    background-color: red;
   }

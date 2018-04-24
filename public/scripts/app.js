@@ -1,3 +1,5 @@
-$(document).on('load', function(){
-    console.log('well hello there ;)')
-})
+console.log('here i am');
+
+$(document).ready(function(){
+    console.log('well hello there ;)');
+});

@@ -1,0 +1,18 @@
+<div class="row">
+        <% recipes.forEach(function(recipe){%>
+    <div class="col s12 m8 l4 offset-m2">
+        <div class="card">
+            <div class="card-image">
+                <img class="image" src="<%=recipe.image_url%>">
+                <span class="card-title"><%= recipe.title%></span>
+            </div>
+            <div class="card-content">
+                <p>Made by: <%=recipe.publisher%></p>
+            </div>
+            <div class="card-action">
+                <a href="<%=recipe.source_url%>">visit recipe</a>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</div>

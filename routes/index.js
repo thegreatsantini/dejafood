@@ -14,23 +14,21 @@ indexRoute.get("/", function (req, res) {
 
 //     query = query.replace(/\s/g,'+').replace(/,/g,'%2C');
 //     console.log(query)//this works
-//     // https://api.edamam.com/search?app_id=' + process.env.API_ID + '&app_key=' + process.env.API_KEY + '&r=' + recipeAPIUri
-//     // request(`https://api.edamam.com/search?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}&q=${query}&to=100`, function(error, response, body){
-//     //     if (error) {
-//     //         console.log('error')
-//     //     }
-//     //     // console.log("#########",body);
-//     //     parsedBody = JSON.parse(body)
-//     //     console.log(parsedBody)
-//     // })
+//  https://api.edamam.com/search?app_id=' + process.env.API_ID + '&app_key=' + process.env.API_KEY + '&r=' + recipeAPIUri
+//     request(`https://api.edamam.com/search?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}&q=${query}&to=100`, function(error, response, body){
+//          if (error) {
+//          console.log('error')
+//      }
+//          console.log("#########",body);
+//         parsedBody = JSON.parse(body)
+//         console.log(parsedBody)
+//     })
 // })
 
 indexRoute.get('/ingredients', function (req, res) {
 
     let queryArr = []
     let userQuery;
-
-
 
     userQueryArr = req.query.search.split(',');
     // console.log('userQueryArr:', userQueryArr)
@@ -44,7 +42,10 @@ indexRoute.get('/ingredients', function (req, res) {
         if (error) {
             console.log('***************error***********', error)
         }
-        console.log(body)
+        body = JSON.parse(body)
+        // console.log(body)
+        res.render('searchResults', { recipes: body.recipes })
+        // res.json(body)
         // const recipe = JSON.parse(body);
         // console.log(recipe)
         // res.json(recipe);

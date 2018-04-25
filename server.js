@@ -10,7 +10,8 @@ const morgan = require('morgan');
 const passport = require('./config/passportConfig');
 const session = require('express-session');
 const path = require('path'); // had to require here
-const indexRoute = require('./routes/index')
+const indexRoute = require('./routes/index');
+const profileRoute = require('./routes/profile');
 
 // initialize app
 const app = express();
@@ -50,6 +51,8 @@ app.use(function (req, res, next) {
 
 // routes
 app.use('/', indexRoute)
+app.use('/profile', profileRoute)
+app.use('/auth', require('./routes/auth'));
 
 // How to set up route for 404
 // app.get('*', function (req, res) {
@@ -57,12 +60,8 @@ app.use('/', indexRoute)
 //     res.status(404).send("Sorry for the inconvience, we'll get this set up in a jinglehiemer jiffy")
 // })
 
-app.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile');
-});
 
 // include any routes from controllers
-app.use('/auth', require('./routes/auth'));
 
 
 // app.set('port', process.env.PORT || 3000)

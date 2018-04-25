@@ -64,5 +64,7 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
+
+
 // allow other files to access the routes defined here
 module.exports = router;

@@ -1,43 +1,23 @@
-<nav class="navbar navbar-default">
-    <div class="container">
+<nav class="slideframe">
+    <div class="nav-wrapper">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Dejafood</a>
+            <a class="brand-logo center" href="#">Dejafood</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-expand-md" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="">
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="">About</a>
-                </li>
-                <li>
-                    <a href="">Contact</a>
-                </li>
 
-            </ul>
-            </li>
-            </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul id='nav-mobile' class="right hide-on-med-and-down">
                 <% if (!currentUser) { %>
                     <li>
-                        <a href="auth/login">Log In
+                        <a href="#modal1" class='modal1'>Log In
                             <i class="fa fa-user-plus"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="auth/signup">Sign Up
+                        <a href="#modal2" class="modal2">Sign Up
                             <i class="fa fa-user"></i>
                         </a>
                     </li>
@@ -53,8 +33,6 @@
                             </a>
                         </li>
                         <% } %>
-            </ul>
-            </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

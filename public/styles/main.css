@@ -27,3 +27,40 @@
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
+
+  nav slideframe {
+    opacity: 0;
+    animation: 1s fadein 0.5s forwards;
+  }
+
+  @keyframes fadein {
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .hero-content-area {
+    opacity: 0;
+    margin-top: 100px;
+    animation: 1s slidefade 1s forwards;
+  }
+  
+  
+  .ingredients {
+    opacity: 0;
+  }
+  
+  hide {
+    display: none;
+  }
+  
+  animation-slidefade {
+    animation: 1s slidefade 1s forwards;
+    
+  }
+      @keyframes slidefade {
+        100% {
+          opacity: 1;
+          margin: 0;
+        }
+      }

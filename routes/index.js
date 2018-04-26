@@ -31,10 +31,8 @@ indexRoute.get('/ingredients', function (req, res) {
     let userQuery;
 
     userQueryArr = req.query.search.split(',');
-    // console.log('userQueryArr:', userQueryArr)
     userQuery = userQueryArr.join();
     // userQuery = userQuery.replace(/\s/g,'')
-    // console.log('userQuery:', userQuery)
 
     const recipeUrl = `http://food2fork.com/api/search?key=${process.env.API_KEY}&q=${userQuery}`;
 
@@ -43,13 +41,11 @@ indexRoute.get('/ingredients', function (req, res) {
             console.log('***************error***********', error)
         }
         body = JSON.parse(body)
-        // console.log(body)
         res.render('searchResults', { recipes: body.recipes })
         // res.json(body)
-        // const recipe = JSON.parse(body);
-        // console.log(recipe)
-        // res.json(recipe);
     });
 })
+
+
 
 module.exports = indexRoute;

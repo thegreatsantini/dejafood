@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const savedRecipes = require('./savedRecipes')
 
 const userSchema = new mongoose.Schema({
     name: String,
@@ -11,7 +12,8 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    saved: [ savedRecipes.schema ]
 })
 
 // check whether password is correct

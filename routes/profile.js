@@ -9,5 +9,12 @@ profileRoute.get('/', isLoggedIn, function(req, res){
     res.render('profile', {currentUser:res.locals.currentUser});
 });
 
+profileRoute.post('/myrecipes', isLoggedIn, function(req, res){
+    console.log(req.body)
+    // User.findById(res.locals.currentUser.id,() => {
+    //     console.log()
+    // }
+})
+
 
 module.exports = profileRoute;

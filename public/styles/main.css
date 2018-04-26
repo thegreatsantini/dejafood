@@ -83,3 +83,7 @@
 .container {
   background: url('https://www.pexels.com/photo/board-bunch-cooking-food-349609/')
 }
+
+i.add:hover {
+  color: black;
+}

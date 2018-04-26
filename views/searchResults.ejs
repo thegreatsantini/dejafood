@@ -1,18 +1,28 @@
-<div class="row">
+    <div class="row">
         <% recipes.forEach(function(recipe){%>
-    <div class="col s12 m8 l4 offset-m2">
-        <div class="card">
-            <div class="card-image">
-                <img class="image" src="<%=recipe.image_url%>">
-                <span class="card-title"><%= recipe.title%></span>
+            <div class="col s12 m8 l4 offset-m2">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="image" src="<%=recipe.image_url%>">
+                    </div>
+                    <div class="card-content">
+                        <div class='row'>
+                            <button  class="btn-floating btn-large waves-effect waves-light red save">
+                                <i data-recipe='<%=recipe.recipe_id%>' class="material-icons 
+                                add">add</i>
+                            </button>
+                        </div>
+                        <span class="card-title">
+                            <%= recipe.title%>
+                        </span>
+                        <p>Made by:
+                            <%=recipe.publisher%>
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="<%=recipe.source_url%>">visit recipe</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <p>Made by: <%=recipe.publisher%></p>
-            </div>
-            <div class="card-action">
-                <a href="<%=recipe.source_url%>">visit recipe</a>
-            </div>
-        </div>
+            <% }); %>
     </div>
-    <% }); %>
-</div>

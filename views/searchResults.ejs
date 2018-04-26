@@ -1,28 +1,31 @@
-    <div class="row">
-        <% recipes.forEach(function(recipe){%>
-            <div class="col s12 m8 l4 offset-m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img class="image" src="<%=recipe.image_url%>">
-                    </div>
-                    <div class="card-content">
+<div class="row">
+    <% recipes.forEach(function(recipe){%>
+        <div class="col s12 m8 l4 offset-m2">
+            <div class="card">
+                <div class="card-image">
+                    <img class="image" src="<%=recipe.image_url%>">
+                </div>
+                <div class="card-content">
+
+                    <span class="card-title">
+                        <%= recipe.title%>
+                    </span>
+                    <p>Made by:
+                        <%=recipe.publisher%>
+                    </p>
+                </div>
+                <div class="card-action">
+                    <% if ( currentUser ) { %>
                         <div class='row'>
-                            <button  class="btn-floating btn-large waves-effect waves-light red save">
-                                <i data-recipe='<%=recipe.recipe_id%>' class="material-icons 
+                            <a href="<%=recipe.source_url%>">visit recipe</a>
+                            <button class="btn-floating btn-large waves-effect waves-light red save btn-small">
+                                <i data-recipe='<%=recipe.recipe_id%>' data-image='<%=recipe.image_url%>' data-title='<%= recipe.title%>' data-publisher='<%=recipe.publisher%>' data-link='<%=recipe.source_url%>'  class="material-icons 
                                 add">add</i>
                             </button>
                         </div>
-                        <span class="card-title">
-                            <%= recipe.title%>
-                        </span>
-                        <p>Made by:
-                            <%=recipe.publisher%>
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="<%=recipe.source_url%>">visit recipe</a>
-                    </div>
+                        <% } %>
                 </div>
             </div>
-            <% }); %>
-    </div>
+        </div>
+        <% }); %>
+</div>

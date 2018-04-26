@@ -24,10 +24,17 @@ indexRoute.get("/", function (req, res) {
 //         console.log(parsedBody)
 //     })
 // })
+let recipeList;
+let savedRecipe
+
+function saveRecipeList(apiResponse) {
+    recipeList = apiResponse
+    console.log(savedRecipe)
+}
 
 indexRoute.get('/ingredients', function (req, res) {
-
-    let queryArr = []
+    console.log('*********** not logged in **********')
+    let userQueryArr = []
     let userQuery;
 
     userQueryArr = req.query.search.split(',');
@@ -41,11 +48,20 @@ indexRoute.get('/ingredients', function (req, res) {
             console.log('***************error***********', error)
         }
         body = JSON.parse(body)
-        res.render('searchResults', { recipes: body.recipes })
-        // res.json(body)
+        // res.render('searchResults', { recipes: body.recipes })
+        saveRecipeList(body.recipes)
+        res.json(body.recipes)
+
     });
 })
 
+indexRoute.post('/profile/myrecipes', isLoggedIn, function (req, res) {
 
+    // savedRecipe = Object.keys(req.body)[0]
+    console.log(req.body)
+    // User.findById(res.locals.currentUser.id,() => {
+    //     console.log()
+    // }
+})
 
 module.exports = indexRoute;

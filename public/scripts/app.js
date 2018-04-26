@@ -5,8 +5,8 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             method: 'POST',
-            url: '/myrecipes',
-            data: e.target,
+            url: '/profile/myrecipes',
+            data: e.target.dataset.recipe,
             success: saveNewRecipe(e.target.dataset.recipe),
             error: console.log('ignore me')
         })

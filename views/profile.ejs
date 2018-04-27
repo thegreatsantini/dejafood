@@ -1,1 +1,38 @@
 <h2>Hello, <%= currentUser.name %>!</h2>
+<p> So much to eat so little time <p>
+<div class="row">
+    <% currentUser.saved.forEach(function(bookMark){%>
+        <div class="col s12 m8 l4 offset-m2">
+            <div class="card">
+                <div class="card-image">
+                    <img class="image" src='<%=bookMark.image_url%>' >
+                </div>
+                <div class="card-content">
+
+                    <span class="card-title">
+
+                        <% if ( bookMark.title.length > 15 ) { %>
+                            <%= bookMark.title.slice(0, 17) + '...'%>
+                                <% } else { %>
+                                    <%= bookMark.title %>
+                                        <% } %>
+                    </span>
+                    <p>Made by:
+                        <%=bookMark.publisher%>
+                    </p>
+                </div>
+                <div class="card-action">
+                    <div class='row'>
+                        <a href="<%=bookMark.source_url%>">visit recipe</a>
+                        <% if ( currentUser ) { %>
+                            <button class="btn-floating btn-large waves-effect waves-light red save btn-small">
+                                <i data-image='<%=bookMark.image_url%>' data-publisher="<%=bookMark.publisher%>" data-title="<%= bookMark.title%>" data-link="<%=bookMark.source_url%>"
+                                    class="material-icons add">add</i>
+                            </button>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+</div>

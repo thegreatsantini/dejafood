@@ -105,3 +105,28 @@
 i.add:hover {
   color: black;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold; 
+  letter-spacing: 2.0px;
+}
+
+.copyright .sml {
+  font-size: 18px;
+}
+
+.fab-github {
+  font-size: 18px;
+}

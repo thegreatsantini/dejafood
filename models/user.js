@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    saved: [ savedRecipes.schema ]
+    saved: [savedRecipes.schema]
 })
 
 // check whether password is correct

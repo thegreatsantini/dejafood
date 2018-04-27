@@ -17,7 +17,7 @@ const profileRoute = require('./routes/profile');
 const app = express();
 
 // connect to database
-mongoose.connect('mongodb://localhost/dejafood');
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/dejafood');
 
 // set and use statements set view engine and use middleware
 app.use(express.static('public'));

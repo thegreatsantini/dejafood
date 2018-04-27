@@ -4,7 +4,7 @@ const savedRecipes = new mongoose.Schema({
     publisher: String,
     title: String,
     source: String,
-    recipe: String
+    image: String
 })
 
 

@@ -30,7 +30,7 @@ app.use(expressLayouts);
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 app.use(flash());
 app.use(passport.initialize());

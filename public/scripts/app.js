@@ -3,12 +3,15 @@ $(document).ready(function () {
 
     $('.save').on('click', function(e){
         e.preventDefault();
+        
         $.ajax({
             method: 'POST',
-            url: '/profile/myrecipes',
-            data: e.target.dataset.recipe,
-            success: saveNewRecipe(e.target.dataset.recipe),
+            url: '/profile',
+            data: e.target.dataset,
+            success: saveNewRecipe(e.target),
             error: console.log('ignore me')
+        }).then(function(data){
+
         })
     })
 
@@ -20,6 +23,6 @@ $(document).ready(function () {
     
 });
 
-function saveNewRecipe(recipeId) {
-    console.log(recipeId)
+function saveNewRecipe(savedRecipe) {
+    console.log(savedRecipe.dataset)
 }

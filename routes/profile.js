@@ -10,7 +10,6 @@ const SavedRecipe = require('../models/savedRecipes')
 
 profileRoute.get('/', isLoggedIn, function (req, res) {
     res.render('profile', { currentUser: res.locals.currentUser });
-    console.log(res.locals.currentUser.saved[1])
 });
 
 profileRoute.post('/', function (req, res) {
@@ -22,7 +21,6 @@ profileRoute.post('/', function (req, res) {
         link: req.body.link
     };
 
-    console.log(newBookmark.image);
 
     db.findById(res.locals.currentUser.id, (err, success) => {
 
@@ -30,12 +28,45 @@ profileRoute.post('/', function (req, res) {
             if (err) {
                 console.log(err)
             }
-            console.log(recipe)
             success.saved.push(recipe);
             success.save();
         })
     });
     res.send('success')
+})
+
+profileRoute.delete('/', function (req, res) {
+    let bookMarkToRemove = {
+        title: req.body.title,
+        publisher: req.body.publisher,
+        image: req.body.image,
+        link: req.body.link
+    };
+    console.log('what was clicked',bookMarkToRemove)
+    console.log('****************')
+
+    db.findById(res.locals.currentUser.id, (err, user) => {
+
+        let saved_id;
+
+        const removeMe = user.saved.filter(food => {
+            return food.title === bookMarkToRemove.title
+        })
+
+        saved_id = removeMe[0]._id;
+
+        console.log('saved_id', saved_id)
+
+        SavedRecipe.findByIdAndRemove(saved_id, (error, success) => {
+            // console.log(user)
+            if (error) {
+                res.status(500).send()
+                console.log('didnt work', error)
+            }
+            user.save()
+            res.status(200).send()
+        })
+    })
 })
 
 module.exports = profileRoute;

@@ -22,7 +22,7 @@ function saveRecipeList(apiResponse) {
 }
 
 indexRoute.get('/ingredients', function (req, res) {
-    console.log('*********** not logged in **********')
+
     let userQueryArr = []
     let userQuery;
 
@@ -46,18 +46,18 @@ indexRoute.get('/ingredients', function (req, res) {
 
 
 
-    
 
 
 
-    //     $push: { saved: newBookmark }
-    // }, { 'new': true }, function (err, user) {
-    //     if (err) {
-    //         console.log('couldnt add new bookmark')
-    //     } else {
-    //         res.redirect('searchResults');
-    //     }
-    // })
+
+//     $push: { saved: newBookmark }
+// }, { 'new': true }, function (err, user) {
+//     if (err) {
+//         console.log('couldnt add new bookmark')
+//     } else {
+//         res.redirect('searchResults');
+//     }
+// })
 
 
-    module.exports = indexRoute;
+module.exports = indexRoute;

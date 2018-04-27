@@ -25,9 +25,9 @@
                     <div class='row'>
                         <a href="<%=bookMark.source_url%>">visit recipe</a>
                         <% if ( currentUser ) { %>
-                            <button class="btn-floating btn-large waves-effect waves-light red save btn-small">
+                            <button class="btn-floating btn-large waves-effect waves-light red remove btn-small" >
                                 <i data-image='<%=bookMark.image_url%>' data-publisher="<%=bookMark.publisher%>" data-title="<%= bookMark.title%>" data-link="<%=bookMark.source_url%>"
-                                    class="material-icons add">add</i>
+                                    class="material-icons ">remove</i>
                             </button>
                             <% } %>
                     </div>

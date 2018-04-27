@@ -43,36 +43,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-// top level routes
-// top-level routes
-// app.get('/', (req, res) => {
-//     res.render('index');
-// });
-
 // routes
 app.use('/', indexRoute)
 app.use('/profile', profileRoute)
 app.use('/auth', require('./routes/auth'));
 
-// app.post('/myrecipes', isLoggedIn, function (req, res) {
-//     console.log('save me')
-//     console.log("*************", Object.keys(req.body)[0], "*************")
-//     // User.findById(res.locals.currentUser.id,() => {
-//     //     console.log()
-//     // }
-// })
-
-// How to set up route for 404
-// app.get('*', function (req, res) {
-//     console.log('404 ')
-//     res.status(404).send("Sorry for the inconvience, we'll get this set up in a jinglehiemer jiffy")
-// })
-
-
-
-// include any routes from controllers
-
-
+// why was this buggy
 // app.set('port', process.env.PORT || 3000)
 // const PORT = process.env.PORT || 3000;
 

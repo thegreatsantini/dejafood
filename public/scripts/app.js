@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     $('.save').on('click', function (e) {
+        console.log('save me')
         e.preventDefault();
 
         $.ajax({
@@ -9,9 +10,21 @@ $(document).ready(function () {
             url: '/profile',
             data: e.target.dataset,
             success: saveNewRecipe(e.target),
-            error: console.log('ignore me')
+            error: runError
         }).then(function (data) {
+        })
+    })
 
+    $('.remove').on('click', function (e)  {
+        e.preventDefault();
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/profile',
+            data: e.target.dataset,
+            success: removeSavedRecipe(e.target),
+            error: runError
+        }).then(function (data) {
         })
     })
 
@@ -21,8 +34,17 @@ $(document).ready(function () {
         $('.ingredients').toggleClass('animation-slideframe')
     })
 
+
 });
 
 function saveNewRecipe(savedRecipe) {
     console.log(savedRecipe.dataset)
+}
+
+function removeSavedRecipe() {
+    console.log('ingore me')
+}
+
+function runError() {
+    console.log('ignore me')
 }

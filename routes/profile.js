@@ -22,25 +22,11 @@ profileRoute.post('/', function (req, res) {
         source: req.body.source
     };
 
-
     db.findById(res.locals.currentUser.id, (err, success) => {
-
-        console.log(req.body)
-        console.log('*********************')
-        console.log('*********************')
-
-
         SavedRecipe.create(req.body, (error, recipe) => {
-
-            console.log(newBookmark);
-            console.log('I am recipe!: ', recipe);
-
             if (error) {
                 res.status(500).send()
             }
-            console.log('*********************')
-            console.log('*********************')
-
             success.saved.push(recipe);
             success.save();
         })

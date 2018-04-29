@@ -6,7 +6,6 @@ $(document).ready(function () {
         $('.tap-target').open();
     })
 
-
     $('.save').on('click', function (e) {
         e.preventDefault();
 
@@ -33,7 +32,8 @@ $(document).ready(function () {
             success: removeSavedRecipe(e.target),
             error: runError
         }).then(function (data) {
-            location.reload();
+            $(this).parent().remove()
+            // location.reload()
         })
     })
 
@@ -53,6 +53,6 @@ function removeSavedRecipe() {
     console.log('why is the error message logging?')
 }
 
-function runError() {
-    console.log('why is the error message logging?')
+function runError(error) {
+    console.log('why is the error message logging?', error)
 }

@@ -2,7 +2,6 @@
 $(document).ready(function () {
 
     $('.save').on('click', function (e) {
-        console.log('save me')
         e.preventDefault();
 
         $.ajax({
@@ -25,6 +24,7 @@ $(document).ready(function () {
             success: removeSavedRecipe(e.target),
             error: runError
         }).then(function (data) {
+            location.reload();
         })
     })
 
@@ -33,18 +33,17 @@ $(document).ready(function () {
         $('.ingredients').toggleClass('ingredients')
         $('.ingredients').toggleClass('animation-slideframe')
     })
-
-
 });
 
 function saveNewRecipe(savedRecipe) {
+    console.log('************************')
     console.log(savedRecipe.dataset)
 }
 
 function removeSavedRecipe() {
-    console.log('ingore me')
+    console.log('why is the error message logging?')
 }
 
 function runError() {
-    console.log('ignore me')
+    console.log('why is the error message logging?')
 }

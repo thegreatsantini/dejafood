@@ -1,12 +1,16 @@
-
 $(document).ready(function () {
+    $('.sidenav').sidenav();
 
-    $(document).ready(function () {
-        $('.sidenav').sidenav();
-    });
+    // Feature Discovery
+    $('.menu').on('click', function () {
+        $('.tap-target').open();
+    })
 
     $('.save').on('click', function (e) {
         e.preventDefault();
+
+        // Toasts
+        // $(this).toast({html: 'Saved'})
 
         $.ajax({
             method: 'POST',
@@ -28,7 +32,8 @@ $(document).ready(function () {
             success: removeSavedRecipe(e.target),
             error: runError
         }).then(function (data) {
-            location.reload();
+            $(this).parent().remove()
+            // location.reload()
         })
     })
 
@@ -48,6 +53,6 @@ function removeSavedRecipe() {
     console.log('why is the error message logging?')
 }
 
-function runError() {
-    console.log('why is the error message logging?')
+function runError(error) {
+    console.log('why is the error message logging?', error)
 }

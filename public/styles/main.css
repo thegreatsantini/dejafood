@@ -11,7 +11,15 @@
     background-position: center;
     font-family: "Lato", sans-serif;
     background-repeat: no-repeat;
+    /*  sticky nav    */
+    /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
   }
+
+  /* main {
+    flex: 1 0 auto;
+  } */
   
   h1 {
     font-weight: 700;
@@ -111,7 +119,7 @@ i.add:hover {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
+  background-color: #EC6268!important;
   color: white;
   text-align: center;
 }
@@ -120,7 +128,7 @@ i.add:hover {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold; 
-  letter-spacing: 2.0px;
+  letter-spacing: 2.5px;
 }
 
 .copyright .sml {

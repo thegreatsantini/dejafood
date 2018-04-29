@@ -7,18 +7,18 @@
         <ul class="right hide-on-med-and-down">
             <% if ( !currentUser ) { %>
                 <li>
-                    <a href="auth/login">Log In
+                    <a href="/auth/login">Log In
                     </a>
                 </li>
                 <li>
-                    <a href="auth/signup">Sign Up
+                    <a href="/auth/signup">Sign Up
                         
                     </a>
                     </i>
                 </li>
                 <%  } else { %>
                     <li>
-                        <a href="auth/logout">Log out</a>
+                        <a href="/auth/logout">Log out</a>
                     </li>
                     <li>
                         <a href="/profile">Profile</a>
@@ -31,14 +31,14 @@
 <ul class="sidenav" id="mobile-demo">
         <% if ( !currentUser ) { %>
     <li>
-        <a href="auth/login">Log In</a>
+        <a href="/auth/login">Log In</a>
     </li>
     <li>
-        <a href="auth/signup">Sign Up</a>
+        <a href="/auth/signup">Sign Up</a>
     </li>
     <% } else { %>
     <li>
-        <a href="auth/logout">Log Out</a>
+        <a href="/auth/logout">Log Out</a>
     </li>
     <li>
         <a href="/profile">Profile</a>

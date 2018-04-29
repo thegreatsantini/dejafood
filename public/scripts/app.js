@@ -1,12 +1,17 @@
-
 $(document).ready(function () {
+    $('.sidenav').sidenav();
 
-    $(document).ready(function () {
-        $('.sidenav').sidenav();
-    });
+    // Feature Discovery
+    $('.menu').on('click', function () {
+        $('.tap-target').open();
+    })
+
 
     $('.save').on('click', function (e) {
         e.preventDefault();
+
+        // Toasts
+        // $(this).toast({html: 'Saved'})
 
         $.ajax({
             method: 'POST',

@@ -1,6 +1,10 @@
 
 $(document).ready(function () {
 
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+
     $('.save').on('click', function (e) {
         e.preventDefault();
 
@@ -14,7 +18,7 @@ $(document).ready(function () {
         })
     })
 
-    $('.remove').on('click', function (e)  {
+    $('.remove').on('click', function (e) {
         e.preventDefault();
 
         $.ajax({

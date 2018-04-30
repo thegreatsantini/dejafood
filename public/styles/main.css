@@ -141,3 +141,7 @@ i.add:hover {
   font-size: 18px;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    black;
+   opacity: 1 !important;
+}

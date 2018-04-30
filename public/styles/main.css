@@ -1,17 +1,17 @@
 #content {
     text-align: center;
     color: white;
-    padding-top: 25%;
+    padding-top: 15%;
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
   }
   
   body {
     background-image: url('https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    font-family: 'Lobster Two', cursive!important;
     background-size: cover;
-    font-family: "Lato", sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   
   h1 {
@@ -31,6 +31,7 @@
   }
 
   nav {
+    font-family: 'Lobster Two', cursive!important;
     opacity: 0;
     animation: 1s fadein 0.5s forwards;
 
@@ -145,3 +146,9 @@ input[type=text]:not(.browser-default) {
   border-bottom: 1px solid white!important;
   
 }
+@media all and (max-width: 991.98) { 
+  #content {
+    padding-top: 75%;
+  } 
+  
+} 

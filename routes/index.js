@@ -33,12 +33,12 @@ indexRoute.get('/ingredients', function (req, res) {
     const recipeUrl = `http://food2fork.com/api/search?key=${process.env.API_KEY}&q=${userQuery}`;
 
     request(recipeUrl, function (error, response, body) {
+        const parsedBody = JSON.parse(body)
         if (error) {
             console.log('***************error***********', error)
-        } else if (body.count === undefined) {
-            res.render('404')
+          } else if (parsedBody.count === 0) {
+             res.render('404')
         }
-        console.log(body.count)
         body = JSON.parse(body)
         res.render('searchResults', { recipes: body.recipes })
         // saveRecipeList(body.recipes)

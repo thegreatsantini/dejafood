@@ -20,12 +20,11 @@
   }
   
   html {
-    
-    height: 100%;
+    width: 100vw!important;
+    height: 100vh!important;
   }
   
   hr {
-    width: 400px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -34,7 +33,7 @@
     font-family: 'Lobster Two', cursive!important;
     opacity: 0;
     animation: 1s fadein 0.5s forwards;
-
+    
   }
 
   @keyframes fadein {
@@ -112,7 +111,7 @@ i.add:hover {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 110vw;
   background-color: #EC6268!important;
   color: white;
   text-align: center;
@@ -146,12 +145,15 @@ input[type=text]:not(.browser-default) {
   border-bottom: 1px solid white!important;
   
 }
+
+
 @media all and (max-width: 991.98) { 
-  #content {
-    padding-top: 75%;
-  } 
-  
   nav {
-    margin: 100%
+    margin: 100%;
+    width: inherit;
+  }
+
+  .copyright span {
+    font-size: 12px!important;
   }
 } 

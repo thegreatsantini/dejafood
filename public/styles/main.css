@@ -12,6 +12,7 @@
     background-size: cover;
     font-family: "Lato", sans-serif;
     background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   
   h1 {

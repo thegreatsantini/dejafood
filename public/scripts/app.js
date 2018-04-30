@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
+    $('.parallax').parallax();
 
     // Feature Discovery
     $('.menu').on('click', function () {
@@ -31,9 +32,15 @@ $(document).ready(function () {
             data: e.target.dataset,
             success: removeSavedRecipe(e.target),
             error: runError
-        }).then(function (data) {
-            // $(this).parent().remove()
-            location.reload()
+        }).then( (data) => {
+            const parent = $(this).parent()
+            console.log(parent)
+            console.log('********8')
+            console.log($(this))
+
+           const chain = $(this).parent().parent().parent().remove();
+           console.log(chain)
+            // location.reload()
         })
     })
 

@@ -2,29 +2,22 @@
     text-align: center;
     color: white;
     padding-top: 25%;
+    padding-bottom: 25%;
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
   }
   
   body {
     background-image: url('https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-
+    font-family: 'Lobster Two', cursive!important;
     background-size: cover;
     font-family: "Lato", sans-serif;
     background-repeat: no-repeat;
-    /*  sticky nav    */
-    /* display: flex;
-    min-height: 100vh;
-    flex-direction: column; */
   }
-
-  /* main {
-    flex: 1 0 auto;
-  } */
   
   h1 {
-    font-weight: 700;
-    font-size: 5em;
+    font-weight: 700!important;
+    font-size: 7em;
   }
   
   html {
@@ -114,6 +107,8 @@ i.add:hover {
 }
 
 .footer {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -121,6 +116,8 @@ i.add:hover {
   background-color: #EC6268!important;
   color: white;
   text-align: center;
+  opacity: 0;
+  animation: 1s fadein 0.5s forwards;
 }
 
 .copyright {
@@ -139,6 +136,11 @@ i.add:hover {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-  color:    black;
+  color:   #30A599;
    opacity: 1 !important;
+}
+
+input[type=text]:not(.browser-default) {
+  border-bottom: 1px solid #EC6268!important;
+  
 }

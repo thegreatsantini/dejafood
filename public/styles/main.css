@@ -151,13 +151,15 @@ input[type=text]:not(.browser-default) {
   nav {
     margin: 100%;
     width: inherit;
-  }
-
- h1 {
-   font-size: 3.7rem;
- } 
+  } 
 
   .copyright span {
     font-size: 12px!important;
   }
 } 
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 3.5rem!important;
+  }
+}

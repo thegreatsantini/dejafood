@@ -8,9 +8,8 @@
   
   body {
     background-image: url('https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    font-family: 'Lobster Two', cursive!important;
     background-size: cover;
-    font-family: "Lato", sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
@@ -32,6 +31,7 @@
   }
 
   nav {
+    font-family: 'Lobster Two', cursive!important;
     opacity: 0;
     animation: 1s fadein 0.5s forwards;
 

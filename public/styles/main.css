@@ -153,6 +153,10 @@ input[type=text]:not(.browser-default) {
     width: inherit;
   }
 
+ h1 {
+   font-size: 3.7rem;
+ } 
+
   .copyright span {
     font-size: 12px!important;
   }

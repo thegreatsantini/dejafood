@@ -145,3 +145,9 @@ input[type=text]:not(.browser-default) {
   border-bottom: 1px solid white!important;
   
 }
+@media all and (max-width: 991.98) { 
+  #content {
+    padding-top: 75%;
+  } 
+  
+} 

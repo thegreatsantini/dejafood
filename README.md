@@ -25,7 +25,7 @@ Dejafood does not require you to create an account to search recipes, however yo
 * Trello
 * Auth/Bcrypt
 
-## Routes 
+## Routes
 
 |      CRUD          |Route                          |Functionally                         |
 |----------------|-------------------------------|-----------------------------|

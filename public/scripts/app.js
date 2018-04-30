@@ -32,8 +32,8 @@ $(document).ready(function () {
             success: removeSavedRecipe(e.target),
             error: runError
         }).then(function (data) {
-            $(this).parent().remove()
-            // location.reload()
+            // $(this).parent().remove()
+            location.reload()
         })
     })
 

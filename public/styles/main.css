@@ -38,9 +38,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 
-  nav slideframe {
+  nav {
     opacity: 0;
     animation: 1s fadein 0.5s forwards;
+
   }
 
   @keyframes fadein {
@@ -106,10 +107,6 @@
   right: -9999px;
   margin: auto;
 
-}
-
-.container {
-  
 }
 
 i.add:hover {

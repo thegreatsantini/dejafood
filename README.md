@@ -77,7 +77,8 @@ Dejafood does not require you to create an account to search recipes, however yo
 ### Update .env 
 
 1) Add PORT (optional)
-2) visit Food2Fork api and get key
+2) visit Food2Fork api and get key 
+  a) ``process.env.API_KEY``
 3) create a secret key for password hashing
 
 ### Run server and DB

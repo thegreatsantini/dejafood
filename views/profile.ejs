@@ -1,17 +1,16 @@
-<h2>Hello, <%= currentUser.name %>!</h2>
-<p> So much to eat so little time <p>
+<h3 class='center'> So much to eat so little time...😬 </h3>
+<h3 class='center'>That's ok, we'll keep track of your recipes for later! 😍 </h3>
 <div class="row">
     <% currentUser.saved.forEach(function(bookMark){%>
         <div class="col s12 m8 l4 offset-m2">
             <div class="card">
                 <div class="card-image">
-                    <img class="image" src='<%=bookMark.image_url%>' >
+                    <img class="image" src='<%=bookMark.image%>'>
                 </div>
                 <div class="card-content">
 
                     <span class="card-title">
-
-                        <% if ( bookMark.title.length > 15 ) { %>
+                        <%  if ( bookMark.title.length > 15 ) { %>
                             <%= bookMark.title.slice(0, 17) + '...'%>
                                 <% } else { %>
                                     <%= bookMark.title %>
@@ -23,10 +22,10 @@
                 </div>
                 <div class="card-action">
                     <div class='row'>
-                        <a href="<%=bookMark.source_url%>">visit recipe</a>
+                        <a href="<%=bookMark.source%>">visit recipe</a>
                         <% if ( currentUser ) { %>
-                            <button class="btn-floating btn-large waves-effect waves-light red remove btn-small" >
-                                <i data-image='<%=bookMark.image_url%>' data-publisher="<%=bookMark.publisher%>" data-title="<%= bookMark.title%>" data-link="<%=bookMark.source_url%>"
+                            <button class="btn-floating btn-large waves-effect waves-light red remove btn-small">
+                                <i data-image='<%= bookMark.image%>' data-publisher="<%=bookMark.publisher%>" data-title="<%= bookMark.title%>" data-link="<%=bookMark.source%>"
                                     class="material-icons ">remove</i>
                             </button>
                             <% } %>

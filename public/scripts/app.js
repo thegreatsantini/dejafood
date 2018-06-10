@@ -1,9 +1,17 @@
-
 $(document).ready(function () {
+    $('.sidenav').sidenav();
+    $('.parallax').parallax();
+
+    // Feature Discovery
+    $('.menu').on('click', function () {
+        $('.tap-target').open();
+    })
 
     $('.save').on('click', function (e) {
-        console.log('save me')
         e.preventDefault();
+
+        // Toasts
+        // $(this).toast({html: 'Saved'})
 
         $.ajax({
             method: 'POST',
@@ -15,7 +23,7 @@ $(document).ready(function () {
         })
     })
 
-    $('.remove').on('click', function (e)  {
+    $('.remove').on('click', function (e) {
         e.preventDefault();
 
         $.ajax({
@@ -24,7 +32,8 @@ $(document).ready(function () {
             data: e.target.dataset,
             success: removeSavedRecipe(e.target),
             error: runError
-        }).then(function (data) {
+        }).then((data) => {
+            $(this).parent().parent().parent().remove();
         })
     })
 
@@ -33,18 +42,17 @@ $(document).ready(function () {
         $('.ingredients').toggleClass('ingredients')
         $('.ingredients').toggleClass('animation-slideframe')
     })
-
-
 });
 
 function saveNewRecipe(savedRecipe) {
+    console.log('************************')
     console.log(savedRecipe.dataset)
 }
 
 function removeSavedRecipe() {
-    console.log('ingore me')
+    console.log('why is the error message logging?')
 }
 
-function runError() {
-    console.log('ignore me')
+function runError(error) {
+    console.log('why is the error message logging?', error)
 }

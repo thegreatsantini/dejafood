@@ -13,13 +13,13 @@ indexRoute.get("/", function (req, res) {
     res.render('index');
 });
 
-let recipeList;
-let savedRecipe
+// let recipeList;
+// let savedRecipe
 
-function saveRecipeList(apiResponse) {
-    recipeList = apiResponse
-    console.log(savedRecipe)
-}
+// function saveRecipeList(apiResponse) {
+//     recipeList = apiResponse
+//     console.log("************", savedRecipe)
+// }
 
 indexRoute.get('/ingredients', function (req, res) {
 
@@ -33,31 +33,17 @@ indexRoute.get('/ingredients', function (req, res) {
     const recipeUrl = `http://food2fork.com/api/search?key=${process.env.API_KEY}&q=${userQuery}`;
 
     request(recipeUrl, function (error, response, body) {
+        const parsedBody = JSON.parse(body)
         if (error) {
             console.log('***************error***********', error)
+          } else if (parsedBody.count === 0) {
+             res.render('404')
         }
         body = JSON.parse(body)
         res.render('searchResults', { recipes: body.recipes })
-        saveRecipeList(body.recipes)
-        // res.json(body.recipes)
+        // saveRecipeList(body.recipes)
 
     });
 })
-
-
-
-
-
-
-
-//     $push: { saved: newBookmark }
-// }, { 'new': true }, function (err, user) {
-//     if (err) {
-//         console.log('couldnt add new bookmark')
-//     } else {
-//         res.redirect('searchResults');
-//     }
-// })
-
 
 module.exports = indexRoute;

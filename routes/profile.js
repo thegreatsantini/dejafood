@@ -9,6 +9,7 @@ const db = require('../models/user');
 const SavedRecipe = require('../models/savedRecipes')
 
 profileRoute.get('/', isLoggedIn, function (req, res) {
+    // console.log(res.locals.currentUser)
     res.render('profile', { currentUser: res.locals.currentUser });
 });
 
@@ -18,15 +19,13 @@ profileRoute.post('/', function (req, res) {
         title: req.body.title,
         publisher: req.body.publisher,
         image: req.body.image,
-        link: req.body.link
+        source: req.body.source
     };
 
-
     db.findById(res.locals.currentUser.id, (err, success) => {
-
-        SavedRecipe.create(req.body, (err, recipe) => {
-            if (err) {
-                console.log(err)
+        SavedRecipe.create(req.body, (error, recipe) => {
+            if (error) {
+                res.status(500).send()
             }
             success.saved.push(recipe);
             success.save();
@@ -34,6 +33,7 @@ profileRoute.post('/', function (req, res) {
     });
     res.send('success')
 })
+//////////////////////////////////////////////////////
 
 profileRoute.delete('/', function (req, res) {
     let bookMarkToRemove = {
@@ -42,8 +42,6 @@ profileRoute.delete('/', function (req, res) {
         image: req.body.image,
         link: req.body.link
     };
-    console.log('what was clicked',bookMarkToRemove)
-    console.log('****************')
 
     db.findById(res.locals.currentUser.id, (err, user) => {
 
@@ -55,15 +53,16 @@ profileRoute.delete('/', function (req, res) {
 
         saved_id = removeMe[0]._id;
 
-        console.log('saved_id', saved_id)
 
         SavedRecipe.findByIdAndRemove(saved_id, (error, success) => {
-            // console.log(user)
             if (error) {
                 res.status(500).send()
-                console.log('didnt work', error)
             }
-            user.save()
+            res.status(200).send()
+        })
+        db.findOne({ name: res.locals.currentUser.name }, (fail, loggedInUser) => {
+            loggedInUser.saved.id(saved_id).remove()
+            loggedInUser.save()
             res.status(200).send()
         })
     })

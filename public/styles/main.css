@@ -1,36 +1,39 @@
 #content {
     text-align: center;
     color: white;
-    padding-top: 25%;
+    padding-top: 15%;
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
   }
   
   body {
-    background-size: 100%;
-    background-position: center;
-    font-family: "Lato", sans-serif;
+    background-image: url('https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    font-family: 'Do Hyeon', sans-serif;
     background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   
   h1 {
-    font-weight: 700;
-    font-size: 5em;
+    font-weight: 700!important;
+    font-size: 7em;
   }
   
   html {
-    height: 100%;
+    width: 100vw!important;
+    height: 100vh!important;
   }
   
   hr {
-    width: 400px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 
-  nav slideframe {
+  nav {
+    font-family: 'Lobster Two', cursive!important;
     opacity: 0;
     animation: 1s fadein 0.5s forwards;
+    
   }
 
   @keyframes fadein {
@@ -98,29 +101,29 @@
 
 }
 
-.container {
-  background: url('https://www.pexels.com/photo/board-bunch-cooking-food-349609/')
-}
-
 i.add:hover {
   color: black;
 }
 
 .footer {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
-  background-color: red;
+  width: 110vw;
+  background-color: #EC6268!important;
   color: white;
   text-align: center;
+  opacity: 0;
+  animation: 1s fadein 0.5s forwards;
 }
 
 .copyright {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold; 
-  letter-spacing: 2.0px;
+  letter-spacing: 2.5px;
 }
 
 .copyright .sml {
@@ -131,3 +134,32 @@ i.add:hover {
   font-size: 18px;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:  black;
+  opacity: 1 !important;
+  font-family: 'Lato', sans-serif!important;
+  font-weight: 400!important;
+}
+
+input[type=text]:not(.browser-default) {
+  border-bottom: 1px solid white!important;
+  
+}
+
+
+@media all and (max-width: 991.98) { 
+  nav {
+    margin: 100%;
+    width: inherit;
+  } 
+
+  .copyright span {
+    font-size: 12px!important;
+  }
+} 
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 3.5rem!important;
+  }
+}

@@ -16,10 +16,12 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: '/profile',
-            data: e.target.dataset,
-            success: saveNewRecipe(e.target),
-            error: runError
-        }).then(function (data) {
+            data: e.target.dataset
+            // success: saveNewRecipe(e.target),
+        }).done(function (data) {
+            console.log(data)
+        }).catch( function(error) {
+            console.log('**Error**',error)
         })
     })
 
@@ -45,7 +47,7 @@ $(document).ready(function () {
 });
 
 function saveNewRecipe(savedRecipe) {
-    console.log('************************')
+    
     console.log(savedRecipe.dataset)
 }
 

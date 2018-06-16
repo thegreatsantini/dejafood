@@ -152,10 +152,24 @@ input[type=text]:not(.browser-default) {
 }
 
 .flex-container{
-  margin: 0 auto;
+  /* margin: 0 auto;
   width: 400px;
   height: auto;
   padding: 50px;
+  padding-top: 25vh; */
+  position: absolute;
+  width: 300px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.forms-container {
+  padding: 10px;
+  height: 25%;
 }
 
 .button__container {

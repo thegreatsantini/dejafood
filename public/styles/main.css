@@ -143,9 +143,25 @@ i.add:hover {
 
 input[type=text]:not(.browser-default) {
   border-bottom: 1px solid white!important;
-  
 }
 
+/*//// Forms ////*/
+
+.big {
+  border: black solid 5px;
+}
+
+.flex-container{
+  margin: 0 auto;
+  width: 400px;
+  height: auto;
+  padding: 50px;
+}
+
+.button__container {
+  display: flex;
+  justify-content: flex-end;
+}
 
 @media all and (max-width: 991.98) { 
   nav {
@@ -153,9 +169,9 @@ input[type=text]:not(.browser-default) {
     width: inherit;
   }
 
- h1 {
-   font-size: 3.7rem;
- } 
+h1 {
+  font-size: 3.7rem;
+} 
 
   .copyright span {
     font-size: 12px!important;

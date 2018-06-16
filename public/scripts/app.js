@@ -13,13 +13,23 @@ $(document).ready(function () {
         // Toasts
         // $(this).toast({html: 'Saved'})
 
+    //     $.ajax({
+    //         method: 'POST',
+    //         url: '/profile',
+    //         data: e.target.dataset,
+    //         success: saveNewRecipe(e.target),
+    //         error: runError
+    //     }).then(function (data) {
+    //     })
+    // })
+
         $.ajax({
             method: 'POST',
             url: '/profile',
             data: e.target.dataset
             // success: saveNewRecipe(e.target),
         }).done(function (data) {
-            console.log(data)
+            console.log('**data**',data)
         }).catch( function(error) {
             console.log('**Error**',error)
         })

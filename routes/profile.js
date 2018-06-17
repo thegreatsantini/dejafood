@@ -15,23 +15,28 @@ profileRoute.get('/', isLoggedIn, function (req, res) {
 
 profileRoute.post('/', function (req, res) {
 
-    let newBookmark = {
-        title: req.body.title,
-        publisher: req.body.publisher,
-        image: req.body.image,
-        source: req.body.source
-    };
-
     db.findById(res.locals.currentUser.id, (err, success) => {
-        SavedRecipe.create(req.body, (error, recipe) => {
-            if (error) {
-                res.status(500).send()
+        SavedRecipe.find({ title: req.body.title }, (fail, item) => {
+            // console.log('**item**', item)
+            // console.log('**fail**', fail)
+            if (fail) {
+                return res.status(500).send('Something went wrong')
             }
-            success.saved.push(recipe);
-            success.save();
+            if (item) {
+                return res.status(400).send('recipes already exits')
+            }
+            SavedRecipe.create(req.body, (error, recipe) => {
+                console.log(recipe)
+                if (error) {
+                    return res.status(500).send()
+                }
+                success.saved.push(recipe);
+                success.save().then(() => {
+                    return res.send('success')
+                });
+            })
         })
     });
-    res.send('success')
 })
 //////////////////////////////////////////////////////
 

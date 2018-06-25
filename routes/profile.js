@@ -16,27 +16,23 @@ profileRoute.get('/', isLoggedIn, function (req, res) {
 profileRoute.post('/', function (req, res) {
 
     db.findById(res.locals.currentUser.id, (err, success) => {
+        // Check for repeats
         SavedRecipe.find({ title: req.body.title }, (fail, item) => {
-
-            if (fail) {
-                console.log('*******fail', fail)
-                return res.status(500).send('Something went wrong')
-            }
-            else if (item) {
+            // if the item already exits
+            if (item.length > 0 ) {
                 console.log('***********item', item)
-                return res.status(400).send('recipes already exits')
+                return res.send('recipes already exits')
             }
-            else {
-                SavedRecipe.create(req.body, (error, recipe) => {
-                    if (error) {
-                        return res.status(500).send()
-                    }
-                    success.saved.push(recipe);
-                    success.save().then(() => {
+
+            SavedRecipe.create(req.body, (error, recipe) => {
+                if (error) {
+                    return res.status(500).send()
+                }
+                success.saved.push(recipe);
+                success.save().then(() => {
                     return res.send('success')
-                    });
-                })
-            }
+                });
+            })
         })
     });
 })

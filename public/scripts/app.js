@@ -1,11 +1,9 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
-    $('.parallax').parallax();
 
+    
     // Feature Discovery
-    $('.menu').on('click', function () {
-        $('.tap-target').open();
-    })
+    $('.tap-target').tapTarget();
 
     $('.save').on('click', function (e) {
         e.preventDefault();

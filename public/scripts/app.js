@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
-    $('.parallax').parallax();
 
     // Feature Discovery
     $('.menu').on('click', function () {
@@ -42,7 +41,7 @@ $(document).ready(function () {
             method: 'DELETE',
             url: '/profile',
             data: e.target.dataset,
-            success: removeSavedRecipe(e.target),
+            success: function() { console.log('Success'); },
             error: runError
         }).then((data) => {
             $(this).parent().parent().parent().remove();
@@ -57,12 +56,7 @@ $(document).ready(function () {
 });
 
 function saveNewRecipe(savedRecipe) {
-    
     console.log(savedRecipe.dataset)
-}
-
-function removeSavedRecipe() {
-    console.log('why is the error message logging?')
 }
 
 function runError(error) {

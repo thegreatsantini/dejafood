@@ -20,7 +20,6 @@ profileRoute.post('/', function (req, res) {
         SavedRecipe.find({ title: req.body.title }, (fail, item) => {
             // if the item already exits
             if (item.length > 0 ) {
-                console.log('***********item', item)
                 return res.send('recipes already exits')
             }
 
@@ -39,36 +38,18 @@ profileRoute.post('/', function (req, res) {
 //////////////////////////////////////////////////////
 
 profileRoute.delete('/', function (req, res) {
-    let bookMarkToRemove = {
-        title: req.body.title,
-        publisher: req.body.publisher,
-        image: req.body.image,
-        link: req.body.link
-    };
-
     db.findById(res.locals.currentUser.id, (err, user) => {
+        let saved_id = user.saved.filter(food => {
+            return food.title === req.body.title
+        })[0]._id;
 
-        let saved_id;
-
-        const removeMe = user.saved.filter(food => {
-            return food.title === bookMarkToRemove.title
-        })
-
-        saved_id = removeMe[0]._id;
-
-
-        SavedRecipe.findByIdAndRemove(saved_id, (error, success) => {
-            if (error) {
-                res.status(500).send()
-            }
-            res.status(200).send()
-        })
-        db.findOne({ name: res.locals.currentUser.name }, (fail, loggedInUser) => {
-            loggedInUser.saved.id(saved_id).remove()
-            loggedInUser.save()
-            res.status(200).send()
-        })
-    })
+        user.saved.id(saved_id).remove();
+        user.save().then(result => {
+            res.status(200).send();
+        }).catch(err => {
+            res.status(500).send("Save effed up");
+        });
+    });
 })
 
 module.exports = profileRoute;

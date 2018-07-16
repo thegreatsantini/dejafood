@@ -2,24 +2,10 @@
 const express = require("express");
 const indexRoute = express.Router();
 const request = require('request');
-const bodyParser = require('body-parser');
-const isLoggedIn = require('../middleware/isLoggedIn');
-
-// user model
-const db = require('../models/user');
-const SavedRecipe = require('../models/savedRecipes')
 
 indexRoute.get("/", function (req, res) {
     res.render('index');
 });
-
-// let recipeList;
-// let savedRecipe
-
-// function saveRecipeList(apiResponse) {
-//     recipeList = apiResponse
-//     console.log("************", savedRecipe)
-// }
 
 indexRoute.get('/ingredients', function (req, res) {
 
@@ -40,8 +26,6 @@ indexRoute.get('/ingredients', function (req, res) {
         }
         body = JSON.parse(body)
         res.render('searchResults', { recipes: body.recipes })
-        // saveRecipeList(body.recipes)
-
     });
 })
 

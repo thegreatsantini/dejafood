@@ -20,7 +20,6 @@ profileRoute.post('/', function (req, res) {
         SavedRecipe.find({ title: req.body.title }, (fail, item) => {
             // if the item already exits
             if (item.length > 0 ) {
-                console.log('***********item', item)
                 return res.send('recipes already exits')
             }
 
